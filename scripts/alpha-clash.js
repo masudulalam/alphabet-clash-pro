@@ -11,6 +11,13 @@
 
 // }
 
+
+function handledKeyboardButtonPress () {
+    console.log('button pressed');
+} 
+// capture keyboard keypress
+document.addEventListener('keyup', handledKeyboardButtonPress);
+
 function continueGame () {
     // step - 1 : Generate a random alphabet.
     const alphabet = getArandomAlphabet();
