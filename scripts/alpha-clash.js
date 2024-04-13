@@ -12,11 +12,28 @@
 // }
 
 
-function handledKeyboardButtonPress () {
-    console.log('button pressed');
+function handledKeyboardKeyUpEvent () {
+    const playerPressed = event.key;
+    console.log('player pressed', playerPressed);
+
+    // get expected to press
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log(expectedAlphabet, playerPressed);
+
+    // check match or not
+    if (expectedAlphabet === playerPressed) {
+        console.log('You get a point.');
+        console.log('you have pressed correctly', expectedAlphabet);
+        continueGame();
+    }
+    else {
+        console.log('You missed. You loss a life.');
+    }
 } 
 // capture keyboard keypress
-document.addEventListener('keyup', handledKeyboardButtonPress);
+document.addEventListener('keyup', handledKeyboardKeyUpEvent);
 
 function continueGame () {
     // step - 1 : Generate a random alphabet.
