@@ -47,11 +47,15 @@ function handledKeyboardKeyUpEvent () {
     else {
         console.log('You missed. You loss a life.');
         // step 1. get the current life number:
-        
+        const currentLifeElement = document.getElementById('current-life');
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText); 
 
         // step 2. reduce the life count
+        const newLife = currentLife - 1;
 
-        // step 3. display the updated life conunt 
+        // step 3. display the updated life count 
+        currentLifeElement.innerText = newLife;
     }
 } 
 // capture keyboard keypress
