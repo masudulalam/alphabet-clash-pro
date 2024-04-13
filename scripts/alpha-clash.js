@@ -25,12 +25,33 @@ function handledKeyboardKeyUpEvent () {
     // check match or not
     if (expectedAlphabet === playerPressed) {
         console.log('You get a point.');
+        // update score:
+        // 1. get the current score
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText);
+        console.log(currentScore); 
+
+        // 2. increase the score
+        const newScore = currentScore + 1;
+        console.log(newScore);
+
+        // 3. show the updated score
+        currentScoreElement.innerText = newScore;
+
+
         console.log('you have pressed correctly', expectedAlphabet);
         removeBackgroundColorById(expectedAlphabet);
         continueGame();
     }
     else {
         console.log('You missed. You loss a life.');
+        // step 1. get the current life number:
+        
+
+        // step 2. reduce the life count
+
+        // step 3. display the updated life conunt 
     }
 } 
 // capture keyboard keypress
