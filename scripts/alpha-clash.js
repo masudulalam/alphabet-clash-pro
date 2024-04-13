@@ -60,6 +60,19 @@ function handledKeyboardKeyUpEvent () {
     }
     else {
         console.log('You missed. You loss a life.');
+
+        const currentLife = getElementValueById('current-life');
+        const updatedLife = currentLife - 1;
+        setElementValueById('current-life', updatedLife);
+
+        if (updatedLife === 0) {
+            gameOver ();
+        }
+
+
+
+
+        // ------------------------------------------------
         // step 1. get the current life number:
         // const currentLifeElement = document.getElementById('current-life');
         // const currentLifeText = currentLifeElement.innerText;
@@ -89,7 +102,29 @@ function continueGame () {
 }
 
 function play () {
+    // hide everything show only the playground
     hideElementById('home-screen');
+    hideElementById('final-score')
     showElementById('play-ground');
+
+    // reset score and life
+    setElementValueById ('current-life', 5);
+    setElementValueById ('current-score', 0)
+
+
     continueGame();
+}
+
+function gameOver () {
+    hideElementById('play-ground');
+    showElementById('final-score');
+
+    // update final score
+    // get the last score
+    const lastScore = getElementValueById('current-score');
+    console.log(lastScore);
+    setElementValueById('last-score', lastScore);
+    
+    // clear the last selected alphabet
+    
 }
