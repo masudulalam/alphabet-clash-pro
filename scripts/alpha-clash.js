@@ -26,6 +26,7 @@ function handledKeyboardKeyUpEvent () {
     if (expectedAlphabet === playerPressed) {
         console.log('You get a point.');
         console.log('you have pressed correctly', expectedAlphabet);
+        removeBackgroundColorById(expectedAlphabet);
         continueGame();
     }
     else {
@@ -38,7 +39,7 @@ document.addEventListener('keyup', handledKeyboardKeyUpEvent);
 function continueGame () {
     // step - 1 : Generate a random alphabet.
     const alphabet = getArandomAlphabet();
-    console.log('Your random alphabet',alphabet);
+    // console.log('Your random alphabet',alphabet);
 
     // set randomly generated alphabet to the screen for display.
     const currentAlphabetElement = document.getElementById('current-alphabet');
